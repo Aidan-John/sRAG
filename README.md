@@ -1,8 +1,8 @@
-# sRAG — Secure Retrieval Augmented Generation
+# sRAG - Secure Retrieval Augmented Generation
 
 A full-stack, secure Retrieval Augmented Generation (RAG) system. sRAG indexes your documents, retrieves relevant context, generates AI-powered responses, and evaluates results - all while safeguarding data confidentiality.
 
-Full writeup/demo can be found here: *blog link*
+Full writeup/demo can be found here: [https://blog.aidanjohn.org/2025/07/07/srag-exploring-secure-rag.html](https://blog.aidanjohn.org/2025/07/07/srag-exploring-secure-rag.html)
 
 ![Architecture](./sRAG_Architecture.png)
 
