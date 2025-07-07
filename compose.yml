@@ -1,0 +1,51 @@
+services:
+  ollama:
+    container_name: sRAG_ollama
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    post_start:
+      - command: ollama pull gemma3:4b-it-qat
+
+  chromadb:
+    container_name: sRAG_chromadb
+    image: chromadb/chroma
+    environment:
+      - ALLOW_RESET=TRUE
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma_db/config.yaml:/config.yaml
+    
+  api:
+    depends_on:
+      - ollama
+      - chromadb
+    container_name: sRAG_api
+    build:
+      context: ./api
+    ports:
+      - "80:80"
+    volumes:
+      - ./api:/backend
+  
+  ui:
+    depends_on:
+      - api
+    build:
+      context: ./ui
+    container_name: sRAG_ui
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ui:/app
+      - /app/node_modules
+    
+volumes:
+  ollama_data:
+
+
