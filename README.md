@@ -1,6 +1,9 @@
 # sRAG - Secure Retrieval Augmented Generation
 
-A full-stack, secure Retrieval Augmented Generation (RAG) system. sRAG indexes your documents, retrieves relevant context, generates AI-powered responses, and evaluates results - all while safeguarding data confidentiality.
+A full-stack, secure Retrieval Augmented Generation system. sRAG indexes your documents, retrieves relevant context, generates AI-powered responses, and evaluates results - all while safeguarding data confidentiality.
+
+This project is modeled after [https://github.com/pixegami/simple-rag-pipeline](https://github.com/pixegami/simple-rag-pipeline) with changes made to ensure no data leaves the system. 
+Changes include leveraging local ChromaDB, local LLMs with Ollama, and a web application interface all containerized and deployed with docker compose. 
 
 Full writeup/demo can be found here: [https://blog.aidanjohn.org/2025/07/07/srag-exploring-secure-rag.html](https://blog.aidanjohn.org/2025/07/07/srag-exploring-secure-rag.html)
 
